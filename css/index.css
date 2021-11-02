@@ -3,9 +3,52 @@ body {
 }
 
 .screen {
-    background-color: white;
+    background-color: #D5DAD3;
     box-sizing: content-box;
     height: 100%;
     width: 30%;
     margin: auto;
+    overflow: hidden;
 }
+
+.dark-green {
+    background-color: #005F32;
+    box-sizing: content-box;
+    height: 50%;
+    width: 100%;
+
+}
+
+.top-space {
+    box-sizing:content-box;
+    height: 30%;
+    width: 100%;
+}
+
+.refridge {
+    box-sizing:content-box;
+    height: 30%;
+    width: 100%;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+
+/** vertical space between dark green and white swirl **/
+.space {
+    box-sizing: content-box;
+    width: 100%;
+    height: 10%;
+}
+
+.white {
+    background-color: white;
+    box-sizing: content-box;
+    width: 100%;
+    height: 30%;
+}
+
+
+
+
+
