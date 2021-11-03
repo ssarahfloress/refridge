@@ -1,34 +1,90 @@
 <html lang="en">
-<head>
-  <title>Re: Fridge</title>
-  <link rel="stylesheet" type="text/css" href="../css/recipes.css" />
-</head>
+  <head>
+    <title>Re: Fridge</title>
+    <link rel="stylesheet" type="text/css" href="../css/recipes.css" />
+    <script
+      src="/components/footer-menu.js"
+      type="text/javascript"
+      defer
+    ></script>
+  </head>
 
-<body>
+  <body>
+    <div class="screen">
+      <div class="background">
+        <div class="items">
+          <div class="space"></div>
+          <h>Recipes</h>
+          <button type="button" class="button-green">logout</button>
+        </div>
+        <!--Begin of search bar-->
 
-  <div class="screen">  
-    <div class="background">
-      <!-- <div class="header-top">
-        <div class="left nav-header">recipes</div>
-        <div class="right"><img src="../icons/pantry_unselected.png"></div>
+        <form style="text-align: center; width: 100%">
+          <br />
+          <input
+            type="text"
+            id="recipe"
+            name="recipe"
+            value="Search"
+          /><br /><br />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+      <div class="navbar white-bg">
+        <a href="pantry.html"
+          ><div class="icon">
+            <div class="icon-child">
+              <img src="../icons/pantry_unselected.png" />
+            </div></div
+        ></a>
+        <a href="groceries.html"
+          ><div class="icon">
+            <div class="icon-child">
+              <img src="../icons/groceries_unselected.png" />
+            </div></div
+        ></a>
+        <a href="recipes.html"
+          ><div class="icon">
+            <div class="icon-child">
+              <img src="../icons/recipes_selected.png" />
+            </div></div
+        ></a>
+        <a href="settings.html"
+          ><div class="icon">
+            <div class="icon-child">
+              <img src="../icons/settings_unselected.png" />
+            </div></div
+        ></a>
+      </div>
+
+      <!-- <div class="navbar">
+        
+        
+        
+        <a href="pantry.html"
+          ><div class="icon pantry">
+            <div class="icon-child"></div></div
+        ></a>
+        <a href="groceries.html"
+          ><div class="groceries"><div class="icon-child"></div></div
+        ></a>
+        <a href="recipes.html"
+          ><div class="icon recipes">
+            <div class="icon-child"></div></div
+        ></a>
+        <a href="settings.html"
+          ><div class="icon settings">
+            <div class="icon-child"></div></div
+        ></a>
       </div> -->
-      <form style="text-align: center; width: 100%">
-        <br>
-        <input type="text" id="recipe" name="recipe" value="Search"><br><br>
-        <!-- <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="Doe"><br><br> -->
-        <input type="submit" value="Submit">
-      </form> 
 
-
-      
+      <!-- <footer-menu></footer-menu> -->
+      <!-- <div class="navbar white-bg">
+      <div class="icon"><div class="icon-child"><img src="../icons/pantry_unselected.png"></div></div>
+      <div class="icon"><div class="icon-child"><img src="../icons/groceries_unselected.png"></div></div>
+      <div class="icon"><div class="icon-child"><img src="../icons/recipes_selected.png"></div></div>
+      <div class="icon"><div class="icon-child"><img src="../icons/settings_unselected.png"></div>
+    </div> -->
     </div>
-    <div class="navbar white-bg"><!--
-    --><div class="icon"><div class="icon-child"><img src="../icons/pantry_unselected.png"></div></div><!--
-    --><div class="icon"><div class="icon-child"><img src="../icons/groceries_unselected.png"></div></div><!--
-    --><div class="icon"><div class="icon-child"><img src="../icons/recipes_selected.png"></div></div><!--
-    --><div class="icon"><div class="icon-child"><img src="../icons/settings_unselected.png"></div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
