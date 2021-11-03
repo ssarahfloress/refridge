@@ -1,54 +1,56 @@
+a {
+  text-decoration: none;
+}
+
 body {
-    background-color: #282828;
+  background-color: #282828;
 }
 
 .screen {
-    background-color: white;
-    box-sizing: content-box;
-    height: 100%;
-    width: 30%;
-    margin: auto;
+  background-color: white;
+  box-sizing: content-box;
+  height: 100%;
+  width: 30%;
+  margin: auto;
 }
 
 .background {
-    background-color:#D5DAD3;
-    box-sizing: content-box;
-    height: 90%;
-    width: 100%;
-    margin: auto;
-
+  background-color: #d5dad3;
+  box-sizing: content-box;
+  height: 90%;
+  width: 100%;
+  margin: auto;
 }
 
 .navbar {
-    background-color: white;
-    box-sizing: content-box;
-    height: 10%;
-    width: 100%;
-    margin: auto;
-    display: flex;
+  background-color: white;
+  box-sizing: content-box;
+  height: 10%;
+  width: 100%;
+  margin: auto;
+  display: flex;
 }
 
 .icon {
-    display: inline-block;
-    background-color:white;
-    box-sizing: content-box;
-    height: 100%;
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex: 1;
+  display: inline-block;
+  background-color: white;
+  box-sizing: content-box;
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .icon-child {
-    background-color: white;
-    box-sizing: content-box;
-    height: 50px;
-    width: 50px;
-    margin: auto;
-    vertical-align: middle;
+  background-color: white;
+  box-sizing: content-box;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  vertical-align: middle;
 }
-
 
 /** add a box within the main nav bar boxes, in the child box add the image corresponding
 to this css style**/
