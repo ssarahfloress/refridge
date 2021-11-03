@@ -1,60 +1,84 @@
 body {
-    background-color: #282828;
+  background-color: #282828;
 }
 
 .screen {
-    background-color: white;
-    box-sizing: content-box;
-    height: 100%;
-    width: 30%;
-    margin: auto;
+  background-color: white;
+  box-sizing: content-box;
+  height: 100%;
+  width: 30%;
+  margin: auto;
 }
 
 .background {
-    background-color:#D5DAD3;
-    box-sizing: content-box;
-    height: 90%;
-    width: 100%;
-    margin: auto;
-
+  background-color: #d5dad3;
+  box-sizing: content-box;
+  height: 90%;
+  width: 100%;
+  margin: auto;
 }
 
 .navbar {
-    background-color: white;
-    box-sizing: content-box;
-    height: 10%;
-    width: 100%;
-    margin: auto;
-    display: flex;
+  box-sizing: content-box;
+  height: 10%;
+  width: 100%;
+  margin: auto;
+  display: flex;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.gray-bg {
+  background-color: #d5dad3;
 }
 
 .icon {
-    display: inline-block;
-    background-color:white;
-    box-sizing: content-box;
-    height: 100%;
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex: 1;
+  display: inline-block;
+  background-color: white;
+  box-sizing: content-box;
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .icon-child {
-    background-color: white;
-    box-sizing: content-box;
-    height: 50px;
-    width: 50px;
-    margin: auto;
-    vertical-align: middle;
+  background-color: white;
+  box-sizing: content-box;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  vertical-align: middle;
 }
-
 
 /** add a box within the main nav bar boxes, in the child box add the image corresponding
 to this css style**/
-.icon-child img {    
-    min-width: 100%;
-    min-height: 100%;
-    width: 50px;
-    height: 50px;
+.icon-child img {
+  min-width: 100%;
+  min-height: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.nav-header {
+  font-style: italic;
+  font-size: 30;
+  color: #005f32;
+}
+
+.header-top {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
