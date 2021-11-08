@@ -12,9 +12,11 @@
         <div id="myDIV" class="header">
           <h2>Pantry List</h2>
         </div>
+        <div id='blank-text'>
+          <p>Click the add button to add an item to the pantry</p>
+        </div>
         <ul id="myUL">
-          <li>Chicken</li>
-          <li>Eggs</li>
+
         </ul>
         <div class="hide" id="addItem">
           <h3> Please enter a food item</h3>
@@ -58,6 +60,8 @@
         function onButtonClick(){
           var x = document.getElementById("addItem");
           if (x.style.display === "none") {
+            var y = document.getElementById("blank-text");
+            y.style.display="none";
             document.getElementById('addBtn').innerHTML = "Close";
             x.style.display = "block";
           } else {

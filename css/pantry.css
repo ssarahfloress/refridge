@@ -96,7 +96,6 @@ input {
   width: 50%;
   background: white;
   color: #005F32;
-
   text-align: center;
   font-size: 16px;
   cursor: pointer;
@@ -201,4 +200,8 @@ to this css style**/
   min-height: 100%;
   width: 50px;
   height: 50px;
+}
+p{
+  text-align: center;
+  font-family: 'Oxygen', sans-serif;  
 }
