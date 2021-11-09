@@ -75,6 +75,7 @@ ul li.checked::before {
 }
 #addItem{
   background-color: white;
+  padding: 10px 10px;
   padding-top: 3%;
   margin: auto;
   border-radius: 25px;
@@ -88,6 +89,7 @@ ul li.checked::before {
 }
 #itemInfo{
   background-color: white;
+  padding: 10px 10px;
   padding-top: 3%;
   margin: auto;
   border-radius: 25px;
@@ -96,8 +98,12 @@ ul li.checked::before {
   position:absolute;
   right: 32.5%;
   bottom: 45%;
-  width: 25%;
+  width: 24%;
   z-index: 1;
+}
+#itemInfo table td {
+  text-align: left;
+  width: 100%;
 }
 input {
   display: inline-block;
@@ -132,15 +138,12 @@ input:focus {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 25px;
+  right: 0%;
   font-family: 'Oxygen', sans-serif;
   
 }
-table {
-  padding: 2%;
-}
-
 td{
-  padding: 5px 5px 5px 5px;
+  padding: 10px 10px 10px 10px;
   text-align: left;
   width: 50%;
 }
@@ -283,4 +286,28 @@ to this css style**/
   color: #005F32;
   font-size: 30px;
   text-align: left;
+}
+#item-name-info{
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif;  
+}
+#purchased-date-info{
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif;  
+}
+#item-expir-date-info{
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif;  
+}
+#buyer-info{
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif;  
 }

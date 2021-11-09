@@ -37,7 +37,7 @@
                   y = n.getFullYear();
                   m = n.getMonth() + 1;
                   d = n.getDate();
-                  document.getElementById("purchased-date").innerHTML = m + "/" + d + "/" + y;
+                  document.getElementById("purchased-date").innerHTML = m + "-" + d + "-" + y;
                   </script>
               </label>
               </td>
@@ -47,9 +47,7 @@
                 <label> By: </label>
               </td>
               <td>
-              <label>
-                You
-              </label>
+              <label id='buyer'>You</label>
               </td>
             </tr>
             <tr> 
@@ -69,22 +67,30 @@
         <!-- ITEM INFO -->
         <table class='hide' id='itemInfo'> 
           <tr>
-            <td>
-            <span id='item-name-info'> </span>
+            <td> <label for="food-input">Item Name: </label></td>
+            <td> <span id='item-name-info'> </span> </td> 
+          </tr> 
+          <tr>
+            <td> <label for="food-input">Purchased: </label></td>
+            <td> <span id='purchased-date-info'> </span> </td> 
+          </tr> 
+          <tr>
+            <td> <label for="food-input">By: </label></td>
+            <td><span id='buyer-info'> </span>
             </td> 
           </tr> 
           <tr>
-            <td>
-            <span id='item-expir-date-info'> </span>
-            </td> 
+            <td> <label for="food-input">Best By: </label></td>
+            <td><span id='item-expir-date-info'> </span> </td> 
           </tr> 
           <tr> 
+            <td><span o class="closeBtn"></span></td>
             <td> <span onclick="closeInfo()" class="closeBtn">Close</span> </td>
           </tr>
         </table>
         <!-- ITEM INFO -->
         <ul id="foodItems">
-          <li> Fruit</li>
+
         </ul>
         <div class='show'>
           <span onclick="addItem()" id="addBtn" class="addBtn">Add</span>
@@ -93,6 +99,7 @@
           <img id="keyboard-img" src= '../icons/keyboard.jpg'/>
         </div>
         <script>
+          const foodItems = new Map();
           // Create a "close" button and append it to each list item
           var myNodelist = document.getElementsByTagName("LI");
           var i;
@@ -120,7 +127,15 @@
         var list = document.querySelector('ul');
         list.addEventListener('click', function(ev) {
         if (ev.target.tagName === 'LI') {
-          console.log(ev.target);
+          var itemName = ev.target.innerHTML;
+          itemName = itemName.split("<")[0];
+          var currInfo = foodItems.get(itemName);
+          document.getElementById('item-name-info').innerText = itemName;
+          document.getElementById('purchased-date-info').innerText = currInfo[0];
+          document.getElementById('buyer-info').innerText = currInfo[1];
+          document.getElementById('item-expir-date-info').innerText = currInfo[2];
+          
+          document.getElementById('itemInfo').style.display='block';
         }
         }, false);
 
@@ -136,6 +151,7 @@
         //Shows text input box
         function addItem(){
           var x = document.getElementById("addItem");
+          document.getElementById("itemInfo").style.display = 'none';
           if (x.style.display === "none") {
             var y = document.getElementById("blank-text");
             y.style.display="none";
@@ -162,10 +178,14 @@
           var x = document.getElementById("addItem");
           x.style.display = "none";
           var li = document.createElement("li");
+          /*Getting item info*/
           var inputValue = document.getElementById("food-input").value;
-          document.getElementById("item-name-info").innerHTML = inputValue;
-          var dateValue = document.getElementById("expir-date").value;
-          document.getElementById("item-expir-date-info").innerHTML = dateValue;
+          var buyer = document.getElementById('buyer').innerText;
+          var purDate = document.getElementById("purchased-date").innerText;
+          var expirDate = document.getElementById("expir-date").value;
+          var currInfo = [purDate, buyer, expirDate];
+          foodItems.set(inputValue, currInfo);
+          /* Adding a new item to the list */
           var t = document.createTextNode(inputValue);
           li.appendChild(t);
           if (inputValue === '') {
