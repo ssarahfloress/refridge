@@ -82,15 +82,27 @@ ul li.checked::before {
   margin-right: 5%;
   position:absolute;
   right: 32.5%;
-  bottom: 34%;
+  bottom: 45%;
+  width: 24%;
+  z-index: 1;
+}
+#itemInfo{
+  background-color: white;
+  padding-top: 3%;
+  margin: auto;
+  border-radius: 25px;
+  margin-left: 5%;
+  margin-right: 5%;
+  position:absolute;
+  right: 32.5%;
+  bottom: 45%;
   width: 25%;
   z-index: 1;
 }
 input {
   display: inline-block;
-  margin-bottom: 5%;
   width: 90%;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Oxygen', sans-serif;
   text-align: left;
   margin-left: auto; 
@@ -108,8 +120,18 @@ input:focus {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 25px;
-  margin-left: 55%; 
-  margin-right: 0;
+  margin-left: 40%;
+  font-family: 'Oxygen', sans-serif;
+  
+}
+.closeBtn{
+  display: inline-block;
+  padding: 20px;
+  color: #005F32;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 25px;
   font-family: 'Oxygen', sans-serif;
   
 }
@@ -168,7 +190,13 @@ body {
   background-color: #282828;
   text-align: center;
 }
-
+#keyboard-img {
+  align-self: center;
+  position: absolute;
+  bottom: 1.2%;
+  width:29.5%;
+  left: 35.2%;
+}
 .screen {
   background-color: white;
   box-sizing: content-box;

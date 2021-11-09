@@ -31,13 +31,13 @@
               </td>
               <td>
               <label>
-                <span id='date'></span>
-                <script>
+                <span id='purchased-date'></span>
+                <script> 
                   n =  new Date();
                   y = n.getFullYear();
                   m = n.getMonth() + 1;
                   d = n.getDate();
-                  document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+                  document.getElementById("purchased-date").innerHTML = m + "/" + d + "/" + y;
                   </script>
               </label>
               </td>
@@ -60,14 +60,37 @@
                 <input type="date" id="expir-date" name="expir-date">
               </td>
             </tr>
+            <tr> 
+              <td> <span onclick="closeAdding()" class="closeBtn">Close</span> </td>
+              <td> <span onclick="newItem()" class="finishBtn">Finish</span></td>
+            </tr>
             </table>
-            <span onclick="newElement()" class="finishBtn">Finish</span>
           </div>
-        <ul id="myUL">
-
+        <!-- ITEM INFO -->
+        <table class='hide' id='itemInfo'> 
+          <tr>
+            <td>
+            <span id='item-name-info'> </span>
+            </td> 
+          </tr> 
+          <tr>
+            <td>
+            <span id='item-expir-date-info'> </span>
+            </td> 
+          </tr> 
+          <tr> 
+            <td> <span onclick="closeInfo()" class="closeBtn">Close</span> </td>
+          </tr>
+        </table>
+        <!-- ITEM INFO -->
+        <ul id="foodItems">
+          <li> Fruit</li>
         </ul>
-        <div class="add">
-          <span onclick="onButtonClick()" id="addBtn" class="addBtn">Add</span>
+        <div class='show'>
+          <span onclick="addItem()" id="addBtn" class="addBtn">Add</span>
+        </div>
+        <div class='hide' id='keyboard'> 
+          <img id="keyboard-img" src= '../icons/keyboard.jpg'/>
         </div>
         <script>
           // Create a "close" button and append it to each list item
@@ -86,44 +109,75 @@
           var i;
           for (i = 0; i < close.length; i++) {
             close[i].onclick = function() {
+            var x = document.getElementById("itemInfo");
+            x.style.display = "none";
             var div = this.parentElement;
             div.style.display = "none";
           }
         }
-
-        // Add a "checked" symbol when clicking on a list item
+          
+        /* I'M MODIFYING THIS */
         var list = document.querySelector('ul');
         list.addEventListener('click', function(ev) {
         if (ev.target.tagName === 'LI') {
-          ev.target.classList.toggle('checked');
+          console.log(ev.target);
         }
         }, false);
 
+        /* ORIGINAL CODE */ 
+        // Add a "checked" symbol when clicking on a list item
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'li') {
+        }
+        }, false);
+        /* IDK HOW TO FIX */
+
         //Shows text input box
-        function onButtonClick(){
+        function addItem(){
           var x = document.getElementById("addItem");
           if (x.style.display === "none") {
             var y = document.getElementById("blank-text");
             y.style.display="none";
-            document.getElementById('addBtn').innerHTML = "Close";
+            var k = document.getElementById("keyboard");
+            k.style.display="block";
+            document.getElementById('addBtn').style.display='none';
             x.style.display = "block";
           } else {
-            document.getElementById('addBtn').innerHTML = "Add";
             x.style.display = "none";
           }
         }
-        function newElement() {
+        function closeAdding(){
+          var x = document.getElementById("addItem");
+          x.style.display = "none";
+          var k = document.getElementById("keyboard");
+          k.style.display="none";
+          document.getElementById('addBtn').style.display='block';
+        }
+        function closeInfo(){
+          var x = document.getElementById("itemInfo");
+          x.style.display = "none";
+        }
+        function newItem() {
+          var x = document.getElementById("addItem");
+          x.style.display = "none";
           var li = document.createElement("li");
           var inputValue = document.getElementById("food-input").value;
+          document.getElementById("item-name-info").innerHTML = inputValue;
+          var dateValue = document.getElementById("expir-date").value;
+          document.getElementById("item-expir-date-info").innerHTML = dateValue;
           var t = document.createTextNode(inputValue);
           li.appendChild(t);
           if (inputValue === '') {
           alert("You must write something!");
+          x.style.display = "block";
           } else {
-            document.getElementById("myUL").appendChild(li);
+            document.getElementById("foodItems").appendChild(li);
+            var k = document.getElementById("keyboard");
+            k.style.display="none";
+            document.getElementById('addBtn').style.display='block';
           }
-        document.getElementById("food-input").value = "";
-
+          document.getElementById("food-input").value = "";
           var span = document.createElement("SPAN");
           var txt = document.createTextNode("\u00D7");
           span.className = "close";
