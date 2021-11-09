@@ -8,6 +8,7 @@
 ul {
   margin: 10px;
   padding: 10px;
+  z-index: -1;
 }
 
 /* Style the list items */
@@ -21,7 +22,7 @@ ul li {
   transition: 0.2s;
   border-radius: 25px;
   margin: 10px 0;
-
+  display: flex;
   /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -73,35 +74,63 @@ ul li.checked::before {
   color: white;
 }
 #addItem{
-  background-color: #005F32;
+  background-color: white;
+  padding-top: 3%;
   margin: auto;
-  width: 50%;
-  height: 30%;
-  padding: 10px;
   border-radius: 25px;
+  margin-left: 5%;
+  margin-right: 5%;
+  position:absolute;
+  right: 32.5%;
+  bottom: 34%;
+  width: 25%;
+  z-index: 1;
 }
 input {
   display: inline-block;
-  align-self: center;
-  border-radius: 25px;
-  padding: 10px;
+  margin-bottom: 5%;
+  width: 90%;
   font-size: 18px;
   font-family: 'Oxygen', sans-serif;
-  text-align: center;
+  text-align: left;
+  margin-left: auto; 
+  margin-right: 0;
+  outline: none;
+}
+input:focus {
+  outline:none;
 }
 .finishBtn {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 20px;
-  width: 50%;
-  background: white;
+  padding: 20px;
   color: #005F32;
-  text-align: center;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 25px;
+  margin-left: 55%; 
+  margin-right: 0;
   font-family: 'Oxygen', sans-serif;
+  
+}
+table {
+  padding: 2%;
+}
+
+td{
+  padding: 5px 5px 5px 5px;
+  text-align: left;
+  width: 50%;
+}
+
+label {
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif; 
+  margin-right: auto; 
+  margin-left: 0; 
+
 }
 .hide{
   display:none;
@@ -112,7 +141,7 @@ input {
 .addBtn {
   padding: 10px 10px;
   margin: 20px;
-  width: 25%;
+  width: 7%;
   background: #005F32;
   color: white;
   float: right;
@@ -122,6 +151,10 @@ input {
   transition: 0.3s;
   border-radius: 25px;
   font-family: 'Oxygen', sans-serif;
+  position:absolute;
+  bottom: 12%;
+  right: 35%;
+
 }
 
 .addBtn:hover {
@@ -158,6 +191,7 @@ body {
   width: 100%;
   margin: auto;
   display: flex;
+  z-index: 5;
 }
 
 .icon {
@@ -172,7 +206,7 @@ body {
   flex: 1;
 }
 .header {
-  padding: 15px 20px;
+  padding: 10px 10px;
   color: #005F32;
   text-align: center;
   font-family: 'Oxygen', sans-serif;  
