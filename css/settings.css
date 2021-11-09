@@ -98,7 +98,7 @@ to this css style**/
 
 /* Style the items **/
 .settings-block-1 {
-  position: relative;
+  /* position: relative; **/
   padding: 2px 20px 2px 20px;
   background: #eee;
   font-size: 14px;
@@ -113,7 +113,7 @@ to this css style**/
 }
 
 .settings-block-2 {
-  position: relative;
+  /* position: relative; **/
   padding: 5px 20px 5px 20px;
   background: #eee;
   font-size: 14px;
