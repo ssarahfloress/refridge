@@ -8,8 +8,48 @@
       <div class="background">
         <div class="items">
           <div class="space"></div>
-          <h>Name</h>
-          <button type="button" class="button-green">logout</button>
+          <h>Welcome, Bestie</h>
+
+          <a href="index.html"><button type="button" class="button-green">logout</button></a>
+          <div class="space"></div>
+
+          <!--do we need family code?-->
+          <!-- <div class="settings-block-1"><p>Family Code: 1234</p></div> -->
+          <div class="settings-block-1"><p>Allergies: N/A</p></div>
+          <div class="settings-block-1">
+            <p>Family</p>
+            <button style="margin-left:auto; margin-right:0" type="button" class="collapsible">expand</button>
+          </div>
+
+          <div class="content">
+            <div class="settings-block-2">
+
+                <div><img src="../icons/blue_profile.png" width="50" height="50"></div>
+                <div class="spacey-icons"></div>
+                <div><h2>Sarah</h2><p>Allergies: Peanuts, Watermelon</p></div>
+                <div style="margin-left:auto; margin-right:0"><button type="button" class="button-green">Edit</button></div>
+              
+            </div>
+            <div class="settings-block-2">
+
+                <div><img src="../icons/yellow_profile.png" width="50" height="50"></div> 
+                <div class="spacey-icons"></div>
+                <div><h2>Ilana</h2><p>Allergies: N/A</p></div>
+                <div style="margin-left:auto; margin-right:0;"><button type="button" class="button-green">Edit</button></div>
+  
+            </div>
+            <!--
+            <div class="settings-block-2">
+
+              <div><img src="../icons/red_profile.png" width="50" height="50"></div> 
+              <div class="spacey-icons"></div>
+              <div><h2>Mei</h2><p>Melon</p></div>
+              <div style="margin-left:auto; margin-right:0;"><button type="button" class="button-green">Edit</button></div>
+
+            </div>
+          -->
+          </div>
+
         </div>
 
         <!--nav bar code starts here-->
@@ -45,5 +85,22 @@
         </div>
       </div>
     </div>
+
+    <script>
+      var coll = document.getElementsByClassName("settings-block-1");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+      </script>
   </body>
 </html>
