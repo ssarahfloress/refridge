@@ -95,3 +95,43 @@ to this css style**/
     float: right;
     
 }
+
+/* Style the items **/
+.settings-block-1 {
+  position: relative;
+  padding: 2px 20px 2px 20px;
+  background: #eee;
+  font-size: 14px;
+  border-radius: 25px;
+  margin: 10px 0;
+  display: flex;
+  cursor: pointer;
+}
+
+.collapsible {
+  border: none;
+}
+
+.settings-block-2 {
+  position: relative;
+  padding: 5px 20px 5px 20px;
+  background: #eee;
+  font-size: 14px;
+  border-radius: 25px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.spacey-icons {
+  width: 20px;
+}
+
+
+
+
+
+
