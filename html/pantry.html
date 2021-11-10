@@ -65,7 +65,8 @@
             </table>
           </div>
         <!-- ITEM INFO -->
-        <table class='hide' id='itemInfo'> 
+        <div class='hide' id='itemInfo'> 
+        <table> 
           <tr>
             <td> <label for="food-input">Item Name: </label></td>
             <td> <span id='item-name-info'> </span> </td> 
@@ -84,10 +85,11 @@
             <td><span id='item-expir-date-info'> </span> </td> 
           </tr> 
           <tr> 
-            <td><span o class="closeBtn"></span></td>
-            <td> <span onclick="closeInfo()" class="closeBtn">Close</span> </td>
+            <td><span class="editBtn">Edit</span></td>
+            <td padding="100px"> <span onclick="closeInfo()" class="closeBtn">Close</span> </td>
           </tr>
         </table>
+        </div>
         <!-- ITEM INFO -->
         <ul id="foodItems">
 
