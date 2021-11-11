@@ -108,7 +108,17 @@ to this css style**/
   border-radius: 25px;
   margin: 10px 0;
   display: flex;
-  cursor: pointer;
+}
+
+/* Style the items **/
+.settings-block-01 {
+  /* position: relative; **/
+  padding: 2px 20px 2px 20px;
+  background: #eee;
+  font-size: 14px;
+  border-radius: 25px;
+  margin: 10px 0;
+  display: flex;
 }
 
 .collapsible {
@@ -133,6 +143,24 @@ to this css style**/
   width: 20px;
 }
 
+
+.addBtn {
+  padding: 10px 10px;
+  margin: 20px;
+  width: 7%;
+  background: #005F32;
+  color: white;
+  float: right;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 25px;
+  font-family: 'Oxygen', sans-serif;
+  position:absolute;
+  bottom: 12%;
+  right: 35%;
+}
 
 
 
