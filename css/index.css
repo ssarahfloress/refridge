@@ -63,10 +63,11 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 20px;
     width: 30%;
+    font-family: 'Oxygen', sans-serif;
 }
 
 

@@ -108,6 +108,7 @@ to this css style**/
   border-radius: 25px;
   margin: 10px 0;
   display: flex;
+  font-family: 'Oxygen', sans-serif;
 }
 
 /* Style the items **/
@@ -119,6 +120,7 @@ to this css style**/
   border-radius: 25px;
   margin: 10px 0;
   display: flex;
+  font-family: 'Oxygen', sans-serif;
 }
 
 .collapsible {
@@ -133,6 +135,10 @@ to this css style**/
   border-radius: 25px;
   margin: 10px 0;
   display: flex;
+}
+
+.settings-block-2 p{
+  font-family: 'Oxygen', sans-serif;
 }
 
 .active, .collapsible:hover {
