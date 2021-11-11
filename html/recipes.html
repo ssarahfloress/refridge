@@ -12,226 +12,255 @@
         <div class="items">
           <div class="space"></div>
           <h>Recipes</h>
+          <form style="text-align: center; width: 100%">
+            <br />
+            <input
+              type="text"
+              onclick="searchAlert()"
+              id="recipe"
+              name="recipe"
+              value="Search"
+            /><br /><br />
+            <!-- <input type="submit" value="Submit" /> -->
+          </form>
 
-        <!-- 
-        <div id="myDIV" class="header">
-          <h2>Recipes</h2>
-        </div>
-        -->
+          <div id="blank-text">
+            <p>Click the add button to add an item to the recipe list</p>
+          </div>
+          <button type="button home-button" class="savedBtn">Saved</button>
+          <button
+            onclick="communityAlert()"
+            type="button contact-button"
+            class="communityBtn"
+          >
+            Community
+          </button>
 
-        <form style="text-align: center; width: 100%">
-          <br />
-          <input
-            type="text"
-            id="recipe"
-            name="recipe"
-            value="Search"
-          /><br /><br />
-          <input type="submit" value="Submit" />
-        </form>
+          <div class="hide" id="addItem">
+            <table>
+              <tr>
+                <td>
+                  <label for="food-input">Recipe Name: </label>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="food-input"
+                    placeholder="Enter a recipe..."
+                  />
+                </td>
+              </tr>
 
-        <div id="blank-text">
-          <p>Click the add button to add an item to the recipe list</p>
-        </div>
-        <div class="hide" id="addItem">
-          <table>
+              <tr>
+                <td>
+                  <label> Time to prepare (in minutes): </label>
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    id="time-to-prep"
+                    placeholder="Time to prepare..."
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label> Ingredients: </label>
+                </td>
+                <td>
+                  <textarea
+                    id="ingredients"
+                    placeholder="Ingredients..."
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label> Steps: </label>
+                </td>
+                <td>
+                  <textarea id="steps" placeholder="Steps..."></textarea>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span onclick="closeAdding()" class="closeBtn">Close</span>
+                </td>
+                <td>
+                  <span onclick="newItem()" class="finishBtn">Finish</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!-- ITEM INFO -->
+          <table class="hide" id="itemInfo">
+            <!-- VIEWING IT AFTER EDITING -->
             <tr>
-              <td>
-                <label for="food-input">Recipe Name: </label>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  id="food-input"
-                  placeholder="Enter a recipe..."
-                />
-              </td>
+              <td><label for="food-input">Recipe Name: </label></td>
+              <td><span id="recipe-name-info"> </span></td>
             </tr>
-
             <tr>
-              <td>
-                <label> Time to prepare (in minutes): </label>
-              </td>
-              <td>
-                <input
-                  type="number"
-                  id="time-to-prep"
-                  placeholder="Time to prepare..."
-                />
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <label> Ingredients: </label>
-              </td>
-              <td>
-                <textarea
-                  id="ingredients"
-                  placeholder="Ingredients..."
-                ></textarea>
-              </td>
+              <td><label for="food-input">Prep Time: </label></td>
+              <td><span id="time-prep-info"> </span></td>
             </tr>
             <tr>
+              <td><label for="food-input">Ingredients: </label></td>
+              <td><span id="ingredients-info"> </span></td>
+            </tr>
+            <tr>
+              <td><label for="food-input">Steps: </label></td>
+              <td><span id="steps-info"> </span></td>
+            </tr>
+            <tr>
+              <td><span o class="closeBtn"></span></td>
               <td>
-                <span onclick="closeAdding()" class="closeBtn">Close</span>
+                <span onclick="closeInfo()" class="closeBtn">Close</span>
               </td>
-              <td><span onclick="newItem()" class="finishBtn">Finish</span></td>
             </tr>
           </table>
-        </div>
-        <!-- ITEM INFO -->
-        <table class="hide" id="itemInfo">
-          <!-- VIEWING IT AFTER EDITING -->
-          <tr>
-            <td><label for="food-input">Recipe Name: </label></td>
-            <td><span id="recipe-name-info"> </span></td>
-          </tr>
-          <tr>
-            <td><label for="food-input">Prep Time: </label></td>
-            <td><span id="time-prep-info"> </span></td>
-          </tr>
-          <tr>
-            <td><label for="food-input">Ingredients: </label></td>
-            <td><span id="ingredients-info"> </span></td>
-          </tr>
-          <tr>
-            <td><span o class="closeBtn"></span></td>
-            <td><span onclick="closeInfo()" class="closeBtn">Close</span></td>
-          </tr>
-        </table>
-        <!-- ITEM INFO -->
-        <ul id="foodItems"></ul>
-        <div class="show">
-          <span onclick="addItem()" id="addBtn" class="addBtn">Add</span>
-        </div>
-        <div class="hide" id="keyboard">
-          <img id="keyboard-img" src="../icons/keyboard.jpg" />
-        </div>
-      </div>
-        <script>
-          const foodItems = new Map();
-          // Create a "close" button and append it to each list item
-          var myNodelist = document.getElementsByTagName("LI");
-          var i;
-          for (i = 0; i < myNodelist.length; i++) {
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            myNodelist[i].appendChild(span);
-          }
-
-          // Click on a close button to hide the current list item
-          var close = document.getElementsByClassName("close");
-          var i;
-          for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-              var x = document.getElementById("itemInfo");
-              x.style.display = "none";
-              var div = this.parentElement;
-              div.style.display = "none";
-            };
-          }
-
-          /* I'M MODIFYING THIS */
-          var list = document.querySelector("ul");
-          list.addEventListener(
-            "click",
-            function (ev) {
-              if (ev.target.tagName === "LI") {
-                var itemName = ev.target.innerHTML;
-                itemName = itemName.split("<")[0];
-                var currInfo = foodItems.get(itemName);
-                document.getElementById("recipe-name-info").innerText =
-                  itemName;
-                document.getElementById("time-prep-info").innerText =
-                  currInfo[0];
-                document.getElementById("ingredients-info").innerText =
-                  currInfo[1];
-                document.getElementById("itemInfo").style.display = "block";
-              }
-            },
-            false
-          );
-
-          /* ORIGINAL CODE */
-          // Add a "checked" symbol when clicking on a list item
-          var list = document.querySelector("ul");
-          list.addEventListener(
-            "click",
-            function (ev) {
-              if (ev.target.tagName === "li") {
-              }
-            },
-            false
-          );
-          /* IDK HOW TO FIX */
-
-          //Shows text input box
-          function addItem() {
-            var x = document.getElementById("addItem");
-            document.getElementById("itemInfo").style.display = "none";
-            if (x.style.display === "none") {
-              var y = document.getElementById("blank-text");
-              y.style.display = "none";
-              var k = document.getElementById("keyboard");
-              k.style.display = "block";
-              document.getElementById("addBtn").style.display = "none";
-              x.style.display = "block";
-            } else {
-              x.style.display = "none";
+          <!-- ITEM INFO -->
+          <ul id="foodItems"></ul>
+          <div class="show">
+            <span onclick="addItem()" id="addBtn" class="addBtn">Add</span>
+          </div>
+          <div class="hide" id="keyboard">
+            <img id="keyboard-img" src="../icons/keyboard.jpg" />
+          </div>
+          <script>
+            const foodItems = new Map();
+            // Create a "close" button and append it to each list item
+            var myNodelist = document.getElementsByTagName("LI");
+            var i;
+            for (i = 0; i < myNodelist.length; i++) {
+              var span = document.createElement("SPAN");
+              var txt = document.createTextNode("\u00D7");
+              span.className = "close";
+              span.appendChild(txt);
+              myNodelist[i].appendChild(span);
             }
-          }
-          function closeAdding() {
-            var x = document.getElementById("addItem");
-            x.style.display = "none";
-            var k = document.getElementById("keyboard");
-            k.style.display = "none";
-            document.getElementById("addBtn").style.display = "block";
-          }
-          function closeInfo() {
-            var x = document.getElementById("itemInfo");
-            x.style.display = "none";
-          }
-          function newItem() {
-            var x = document.getElementById("addItem");
-            x.style.display = "none";
-            var li = document.createElement("li");
-            /*Getting item info*/
-            var inputValue = document.getElementById("food-input").value;
-            var prepTime = document.getElementById("time-to-prep").value;
-            var ingredients = document.getElementById("ingredients").value;
-            var currInfo = [prepTime, ingredients];
 
-            foodItems.set(inputValue, currInfo);
-            /* Adding a new item to the list */
-            var t = document.createTextNode(inputValue);
-            li.appendChild(t);
-            if (inputValue === "") {
-              alert("You must write something!");
-              x.style.display = "block";
-            } else {
-              document.getElementById("foodItems").appendChild(li);
-              var k = document.getElementById("keyboard");
-              k.style.display = "none";
-              document.getElementById("addBtn").style.display = "block";
-            }
-            document.getElementById("food-input").value = "";
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            li.appendChild(span);
-
+            // Click on a close button to hide the current list item
+            var close = document.getElementsByClassName("close");
+            var i;
             for (i = 0; i < close.length; i++) {
               close[i].onclick = function () {
+                var x = document.getElementById("itemInfo");
+                x.style.display = "none";
                 var div = this.parentElement;
                 div.style.display = "none";
               };
             }
-          }
-        </script>
+
+            /* I'M MODIFYING THIS */
+            var list = document.querySelector("ul");
+            list.addEventListener(
+              "click",
+              function (ev) {
+                if (ev.target.tagName === "LI") {
+                  var itemName = ev.target.innerHTML;
+                  itemName = itemName.split("<")[0];
+                  var currInfo = foodItems.get(itemName);
+                  document.getElementById("recipe-name-info").innerText =
+                    itemName;
+                  document.getElementById("time-prep-info").innerText =
+                    currInfo[0];
+                  document.getElementById("ingredients-info").innerText =
+                    currInfo[1];
+                  document.getElementById("steps-info").innerText = currInfo[1];
+                  document.getElementById("itemInfo").style.display = "block";
+                }
+              },
+              false
+            );
+
+            /* ORIGINAL CODE */
+            // Add a "checked" symbol when clicking on a list item
+            var list = document.querySelector("ul");
+            list.addEventListener(
+              "click",
+              function (ev) {
+                if (ev.target.tagName === "li") {
+                }
+              },
+              false
+            );
+            /* IDK HOW TO FIX */
+
+            //Shows text input box
+            function addItem() {
+              var x = document.getElementById("addItem");
+              document.getElementById("itemInfo").style.display = "none";
+              if (x.style.display === "none") {
+                var y = document.getElementById("blank-text");
+                y.style.display = "none";
+                var k = document.getElementById("keyboard");
+                k.style.display = "block";
+                document.getElementById("addBtn").style.display = "none";
+                x.style.display = "block";
+              } else {
+                x.style.display = "none";
+              }
+            }
+            function closeAdding() {
+              var x = document.getElementById("addItem");
+              x.style.display = "none";
+              var k = document.getElementById("keyboard");
+              k.style.display = "none";
+              document.getElementById("addBtn").style.display = "block";
+            }
+            function closeInfo() {
+              var x = document.getElementById("itemInfo");
+              x.style.display = "none";
+            }
+            function newItem() {
+              var x = document.getElementById("addItem");
+              x.style.display = "none";
+              var li = document.createElement("li");
+              /*Getting item info*/
+              var inputValue = document.getElementById("food-input").value;
+              var prepTime = document.getElementById("time-to-prep").value;
+              var ingredients = document.getElementById("ingredients").value;
+              var steps = document.getElementById("steps").value;
+              var currInfo = [prepTime, ingredients];
+
+              foodItems.set(inputValue, currInfo);
+              /* Adding a new item to the list */
+              var t = document.createTextNode(inputValue);
+              li.appendChild(t);
+              if (inputValue === "") {
+                alert("You must write something!");
+                x.style.display = "block";
+              } else {
+                document.getElementById("foodItems").appendChild(li);
+                var k = document.getElementById("keyboard");
+                k.style.display = "none";
+                document.getElementById("addBtn").style.display = "block";
+              }
+              document.getElementById("food-input").value = "";
+              var span = document.createElement("SPAN");
+              var txt = document.createTextNode("\u00D7");
+              span.className = "close";
+              span.appendChild(txt);
+              li.appendChild(span);
+
+              for (i = 0; i < close.length; i++) {
+                close[i].onclick = function () {
+                  var div = this.parentElement;
+                  div.style.display = "none";
+                };
+              }
+            }
+
+            function communityAlert() {
+              alert("Community page coming soon!");
+            }
+            function searchAlert() {
+              alert("Search functionality coming soon!");
+            }
+          </script>
+        </div>
       </div>
       <div class="navbar white-bg">
         <div class="icon">
