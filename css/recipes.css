@@ -29,11 +29,6 @@ ul li {
   user-select: none;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd) {
-  background: #f9f9f9;
-}
-
 /* Darker background-color on hover */
 ul li:hover {
   background: #ddd;
@@ -87,6 +82,7 @@ ul li.checked::before {
   z-index: 1;
 }
 #itemInfo {
+  /* preview window */
   background-color: white;
   padding: 10px 10px;
   padding-top: 3%;
@@ -270,11 +266,6 @@ to this css style**/
   margin: auto;
 }
 
-.background h {
-  color: #005F32;
-  font-size: 30px;
-}
-
 /** stuff going inside green starts here**/
 .space {
   box-sizing: content-box;
@@ -304,4 +295,57 @@ to this css style**/
   text-align: left;
   font-size: 16px;
   font-family: "Oxygen", sans-serif;
+}
+#steps-info {
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  font-family: "Oxygen", sans-serif;
+}
+
+.idk {
+  height: 80%;
+  width: 100%;
+  background-color: green;
+}
+
+#button1,
+#button2 {
+  display: inline-block;
+  /* additional code */
+}
+
+.savedBtn {
+  display: inline-block;
+  padding: 10px 10px;
+  margin: 20px;
+  background: #005f32;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 25px;
+  border: none;
+  font-family: "Oxygen", sans-serif;
+  text-decoration: none;
+}
+
+.communityBtn {
+  display: inline-block;
+  padding: 10px 10px;
+  margin: 20px;
+  background: #bbb;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 25px;
+  border: none;
+  font-family: "Oxygen", sans-serif;
+  text-decoration: none;
+}
+.communityBtn:hover {
+  background-color: #005f32;
 }
