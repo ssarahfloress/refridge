@@ -270,6 +270,11 @@ to this css style**/
   margin: auto;
 }
 
+.background h {
+  color: #005F32;
+  font-size: 30px;
+}
+
 /** stuff going inside green starts here**/
 .space {
   box-sizing: content-box;
