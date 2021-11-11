@@ -1,3 +1,5 @@
+<!--Code modified from https://www.w3schools.com/howto/howto_js_todolist.asp-->
+
 <html lang="en">
   <head>
     <title>Re: Fridge</title>
@@ -10,18 +12,217 @@
         <div class="items">
           <div class="space"></div>
           <h>Grocery List</h>
+          
+
+        <!--
+        <div id="myDIV" class="header">
+          <h2>Pantry List</h2>
+        </div>
+        -->
+
+        <div id='blank-text'>
+          <p>Click the add button to add an item to your grocery list</p>
+        </div>
+        <div class="hide" id="addItem">
+            <table> 
+            <tr> 
+              <td> 
+                <label for="food-input">Item Name: </label>
+              </td>
+              <td> 
+                <input type="text" id="food-input" placeholder="Enter a food...">
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <label> Purchased: </label>
+              </td>
+              <td>
+              <label>
+                <span id='purchased-date'></span>
+                <script> 
+                  n =  new Date();
+                  y = n.getFullYear();
+                  m = n.getMonth() + 1;
+                  d = n.getDate();
+                  document.getElementById("purchased-date").innerHTML = m + "-" + d + "-" + y;
+                  </script>
+              </label>
+              </td>
+            </tr>
+            <tr> 
+              <td><label> By: </label></td>
+              <td><label id='buyer'>You</label></td>
+            </tr>
+            <tr> 
+              <td> 
+                <label for="expiration">Best By:</label>
+              </td>
+              <td> 
+                <input type="date" id="expir-date" name="expir-date">
+              </td>
+            </tr>
+            <tr> 
+              <td> <span onclick="closeAdding()" class="closeBtn">Close</span> </td>
+              <td> <span onclick="newItem()" class="finishBtn">Finish</span></td>
+            </tr>
+            </table>
+          </div>
+        <!-- ITEM INFO -->
+        <table class='hide' id='itemInfo'> 
+          <tr>
+            <td> <label for="food-input">Item Name: </label></td>
+            <td> <span id='item-name-info'> </span> </td> 
+          </tr> 
+          <tr>
+            <td> <label for="food-input">Purchased: </label></td>
+            <td> <span id='purchased-date-info'> </span> </td> 
+          </tr> 
+          <tr>
+            <td> <label for="food-input">By: </label></td>
+            <td><span id='buyer-info'> </span>
+            </td> 
+          </tr> 
+          <tr>
+            <td> <label for="food-input">Best By: </label></td>
+            <td><span id='item-expir-date-info'> </span> </td> 
+          </tr> 
+          <tr> 
+            <td><span o class="closeBtn"></span></td>
+            <td> <span onclick="closeInfo()" class="closeBtn">Close</span> </td>
+          </tr>
+        </table>
+        <!-- ITEM INFO -->
+        <ul id="foodItems">
+
+        </ul>
+        <div class='show'>
+          <span onclick="addItem()" id="addBtn" class="addBtn">Add</span>
+        </div>
+        <div class='hide' id='keyboard'> 
+          <img id="keyboard-img" src= '../icons/keyboard.jpg'/>
         </div>
 
-
       </div>
+        <script>
+          const foodItems = new Map();
+          // Create a "close" button and append it to each list item
+          var myNodelist = document.getElementsByTagName("LI");
+          var i;
+          for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+         }
 
-      <!--nav bar code starts here-->
+          // Click on a close button to hide the current list item
+          var close = document.getElementsByClassName("close");
+          var i;
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+            var x = document.getElementById("itemInfo");
+            x.style.display = "none";
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+          
+        /* I'M MODIFYING THIS */
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'LI') {
+          var itemName = ev.target.innerHTML;
+          itemName = itemName.split("<")[0];
+          var currInfo = foodItems.get(itemName);
+          document.getElementById('item-name-info').innerText = itemName;
+          document.getElementById('purchased-date-info').innerText = currInfo[0];
+          document.getElementById('buyer-info').innerText = currInfo[1];
+          document.getElementById('item-expir-date-info').innerText = currInfo[2];
+          
+          document.getElementById('itemInfo').style.display='block';
+        }
+        }, false);
+
+        /* ORIGINAL CODE */ 
+        // Add a "checked" symbol when clicking on a list item
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'li') {
+        }
+        }, false);
+        /* IDK HOW TO FIX */
+
+        //Shows text input box
+        function addItem(){
+          var x = document.getElementById("addItem");
+          document.getElementById("itemInfo").style.display = 'none';
+          if (x.style.display === "none") {
+            var y = document.getElementById("blank-text");
+            y.style.display="none";
+            var k = document.getElementById("keyboard");
+            k.style.display="block";
+            document.getElementById('addBtn').style.display='none';
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        function closeAdding(){
+          var x = document.getElementById("addItem");
+          x.style.display = "none";
+          var k = document.getElementById("keyboard");
+          k.style.display="none";
+          document.getElementById('addBtn').style.display='block';
+        }
+        function closeInfo(){
+          var x = document.getElementById("itemInfo");
+          x.style.display = "none";
+        }
+        function newItem() {
+          var x = document.getElementById("addItem");
+          x.style.display = "none";
+          var li = document.createElement("li");
+          /*Getting item info*/
+          var inputValue = document.getElementById("food-input").value;
+          var buyer = document.getElementById('buyer').innerText;
+          var purDate = document.getElementById("purchased-date").innerText;
+          var expirDate = document.getElementById("expir-date").value;
+          var currInfo = [purDate, buyer, expirDate];
+          foodItems.set(inputValue, currInfo);
+          /* Adding a new item to the list */
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          if (inputValue === '') {
+          alert("You must write something!");
+          x.style.display = "block";
+          } else {
+            document.getElementById("foodItems").appendChild(li);
+            var k = document.getElementById("keyboard");
+            k.style.display="none";
+            document.getElementById('addBtn').style.display='block';
+          }
+          document.getElementById("food-input").value = "";
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("\u00D7");
+          span.className = "close";
+          span.appendChild(txt);
+          li.appendChild(span);
+
+          for (i = 0; i < close.length; i++) {
+              close[i].onclick = function() {
+              var div = this.parentElement;
+              div.style.display = "none";
+            }
+          }
+        }
+        </script>
+      </div>
       <div class="navbar white-bg">
         <div class="icon">
           <div class="icon-child">
-            <a href="pantry.html"
-              ><img src="../icons/pantry_unselected.png"
-            /></a>
+            <a href="pantry.html"><img src="../icons/pantry_unselected.png" /></a>
           </div>
         </div>
         <div class="icon">
