@@ -33,12 +33,12 @@
                 <input type="text" id="food-input" placeholder="Enter a food...">
               </td>
             </tr>
-            <tr> 
+            <tr class='hide'> 
               <td>
-                <label> Purchased: </label>
+                <label class='hide' > Purchased: </label>
               </td>
               <td>
-              <label>
+              <label class='hide'>
                 <span id='purchased-date'></span>
                 <script> 
                   n =  new Date();
@@ -50,13 +50,24 @@
               </label>
               </td>
             </tr>
-            <tr> 
-              <td><label> By: </label></td>
-              <td><label id='buyer'>You</label></td>
+            <tr class='hide'> <!-- This is the implementation for categories but we aren't using it yet -->
+              <td> <label for="category">Select a category:</label></td>
+              <td> <div id='foodCategory'>  
+                <select size='4'> 
+                <option selected> dairy</option>
+                <option> meat</option>
+                <option> produce</option>
+                <option> other</option>
+                </select>
+              </div> </td>
             </tr>
-            <tr> 
+            <tr  class='hide'>
+              <td><label class='hide'> By: </label></td>
+              <td><label id='buyer' class='hide'>You</label></td>
+            </tr>
+            <tr class='hide'> 
               <td> 
-                <label for="expiration">Best By:</label>
+                <label for="expiration" >Best By:</label>
               </td>
               <td> 
                 <input type="date" id="expir-date" name="expir-date">
@@ -74,7 +85,7 @@
             <td> <label for="food-input">Item Name: </label></td>
             <td> <span id='item-name-info'> </span> </td> 
           </tr> 
-          <tr>
+          <tr >
             <td> <label for="food-input">Purchased: </label></td>
             <td> <span id='purchased-date-info'> </span> </td> 
           </tr> 
