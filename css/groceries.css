@@ -311,3 +311,21 @@ to this css style**/
   font-size: 16px;
   font-family: 'Oxygen', sans-serif;  
 }
+select {
+  display:inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding:10px;
+  margin:-5px -20px -5px -5px;
+}
+#foodCatergory select option {
+  display:inline-block;
+}
+
+#foodCategory {
+  display:inline-block;
+  vertical-align:top;
+  overflow:hidden;
+}
