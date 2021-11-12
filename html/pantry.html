@@ -93,7 +93,7 @@
             <td><span id='item-expir-date-info'> </span> </td> 
           </tr> 
           <tr> 
-            <td><span class="editBtn">Edit</span></td>
+            <td><span class="editBtn" onClick="editButtonAlert()">Edit</span></td>
             <td padding="100px"> <span onclick="closeInfo()" class="closeBtn">Close</span> </td>
           </tr>
         </table>
@@ -111,6 +111,9 @@
 
       </div>
         <script>
+          function editButtonAlert() {
+            alert("Edit function coming soon!")
+          } 
           const foodItems = new Map();
           // Create a "close" button and append it to each list item
           var myNodelist = document.getElementsByTagName("LI");
