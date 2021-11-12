@@ -1,4 +1,4 @@
-# refridge
+# Re: Fridge
 Kitchen Kompanion CMSC434
 
 # Instructions for Executable
