@@ -346,6 +346,12 @@ to this css style**/
   font-family: "Oxygen", sans-serif;
   text-decoration: none;
 }
+
+.favoriteBtn {
+  height: 30px;
+  width: 30px;
+}
+
 .communityBtn:hover {
   background-color: #005f32;
 }
